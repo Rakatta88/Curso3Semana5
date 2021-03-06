@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     >
 
-    <include android:id="@+id/myactionbar2"
-        layout="@layout/myactionbar2">
+    <include android:id="@+id/myactionbar"
+        layout="@layout/myactionbar">
 
     </include>
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rvMascota"
-        android:layout_below="@+id/myactionbar2"
+        android:layout_below="@+id/myactionbar"
         >
 
     </androidx.recyclerview.widget.RecyclerView>
