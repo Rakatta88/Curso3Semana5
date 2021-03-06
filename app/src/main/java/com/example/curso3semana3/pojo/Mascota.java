@@ -1,4 +1,4 @@
-package com.example.curso3semana3;
+package com.example.curso3semana3.pojo;
 
 import android.widget.ImageView;
 

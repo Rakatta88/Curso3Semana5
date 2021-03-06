@@ -12,6 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.curso3semana3.adapter.AdaptadorMascota;
+import com.example.curso3semana3.pojo.Mascota;
+
 import java.util.ArrayList;
 
 public class Top5 extends AppCompatActivity {
