@@ -1,5 +1,6 @@
 package com.example.curso3semana3;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -54,6 +56,26 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_opciones, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.mContacto:
+
+                Intent i = new Intent(MainActivity.this, ContactForm.class);
+                startActivity(i);
+                break;
+
+            case R.id.mAcercaDe:
+
+                Intent it = new Intent(MainActivity.this, AcercaDe.class);
+                startActivity(it);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void inicializarAdaptador (){

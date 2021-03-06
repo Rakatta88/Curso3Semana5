@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Curso3Semana3">
-        <activity android:name=".Top5"
-            android:parentActivityName=".MainActivity"
-            >
-
-        </activity>
+        <activity
+            android:name=".AcercaDe"
+            android:parentActivityName=".MainActivity" ></activity>
+        <activity android:name=".ContactForm"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Top5"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

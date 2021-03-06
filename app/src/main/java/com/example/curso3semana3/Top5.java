@@ -1,5 +1,6 @@
 package com.example.curso3semana3;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -47,6 +49,27 @@ public class Top5 extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_opciones, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.mContacto:
+
+                Intent i = new Intent(Top5.this, ContactForm.class);
+                startActivity(i);
+                break;
+
+            case R.id.mAcercaDe:
+
+                Intent it = new Intent(Top5.this, AcercaDe.class);
+                startActivity(it);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     public void ivBack (View v){
         Intent i = new Intent(Top5.this, MainActivity.class);
