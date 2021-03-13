@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,10 +34,12 @@ public class Perfil extends Fragment {
 
         listaPerfiles = (RecyclerView) v.findViewById(R.id.rvPerfil);
 
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        /*LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);*/
 
-        listaPerfiles.setLayoutManager(llm);
+        GridLayoutManager glm = new GridLayoutManager(getActivity(), 3);
+
+        listaPerfiles.setLayoutManager(glm);
 
         createProfiles();
         initializeAdaptor();
@@ -52,12 +55,22 @@ public class Perfil extends Fragment {
 
     public void createProfiles (){
         perfiles = new ArrayList<Mascota>();
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "3"));
         perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
-        perfiles.add (new Mascota ("KungFu Panda", R.drawable.petfaces03, "4"));
-        perfiles.add(new Mascota("Natascha", R.drawable.petfaces05, "5"));
-        perfiles.add (new Mascota ("Simba", R.drawable.petfaces07, "2"));
-        perfiles.add (new Mascota ("Ottifant", R.drawable.petfaces02, "5"));
-        perfiles.add (new Mascota ("Määh", R.drawable.petfaces04, "1"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "8"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "1"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "4"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "7"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "2"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "3"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "8"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "1"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "4"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "7"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "2"));
     }
 
 }

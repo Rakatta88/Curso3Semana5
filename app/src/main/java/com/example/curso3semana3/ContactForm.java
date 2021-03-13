@@ -47,7 +47,7 @@ public class ContactForm extends AppCompatActivity {
 
         //TODO Hide Password if not needed anymore
         sEmail = "justtosendemail88@gmail.com";
-        sPassword = "XXX";
+        sPassword = "SendEmail88";
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
