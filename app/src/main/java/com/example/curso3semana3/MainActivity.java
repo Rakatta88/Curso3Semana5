@@ -1,42 +1,56 @@
 package com.example.curso3semana3;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.curso3semana3.adapter.AdaptadorMascota;
+import com.example.curso3semana3.adapter.PageAdapter;
+import com.example.curso3semana3.fragment.Perfil;
+import com.example.curso3semana3.fragment.RecyclerViewFragment;
+import com.example.curso3semana3.pojo.Mascota;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Mascota> mascotas;
-    private RecyclerView listaMascotas;
+
     ImageView ivFavorites;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //androidx.appcompat.widget.Toolbar myActionBar = (Toolbar) findViewById(R.id.myactionbar);
-        //setSupportActionBar(myActionBar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascota);
+        androidx.appcompat.widget.Toolbar myActionBar = (Toolbar) findViewById(R.id.myactionbar);
+        setSupportActionBar(myActionBar);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
 
-        listaMascotas.setLayoutManager(llm);
 
-        //Initialize Mascot list
-        createPets();
-        inicializarAdaptador();
+        setUpViewPager();
+
+        //TODO investigat if this really is correct
+        if (toolbar !=null){
+            setSupportActionBar(toolbar);
+        }
 
         ivFavorites = findViewById(R.id.ivFavorites);
         ivFavorites.setOnClickListener(new View.OnClickListener() {
@@ -47,20 +61,48 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
-    public void inicializarAdaptador (){
-        AdaptadorMascota adaptador = new AdaptadorMascota(mascotas);
-        listaMascotas.setAdapter(adaptador);
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new Perfil());
+
+        return fragments;
     }
 
-    public void createPets (){
-        mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota("Natascha", R.drawable.petfaces05, "5"));
-        mascotas.add (new Mascota ("Ottifant", R.drawable.petfaces02, "5"));
-        mascotas.add (new Mascota ("KungFu Panda", R.drawable.petfaces03, "4"));
-        mascotas.add (new Mascota ("Simba", R.drawable.petfaces07, "2"));
-        mascotas.add (new Mascota ("Määh", R.drawable.petfaces04, "1"));
-        mascotas.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.mContacto:
+
+                Intent i = new Intent(MainActivity.this, ContactForm.class);
+                startActivity(i);
+                break;
+
+            case R.id.mAcercaDe:
+
+                Intent it = new Intent(MainActivity.this, AcercaDe.class);
+                startActivity(it);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
