@@ -4,14 +4,17 @@ import android.widget.ImageView;
 
 public class Mascota {
 
+    int id;
     String petName;
     int petFoto;
     String petLikes;
+    int likes;
 
-    public Mascota(String petName, int petFoto, String petLikes) {
+    public Mascota(String petName, int petFoto, int likes) {
         this.petName = petName;
         this.petFoto = petFoto;
-        this.petLikes = petLikes;
+//        this.petLikes = petLikes;
+        this.likes = likes;
     }
 
     public String getPetName() {
@@ -30,12 +33,16 @@ public class Mascota {
         this.petFoto = petFoto;
     }
 
-    public String getPetLikes() {
-        return petLikes;
-    }
+//    public String getPetLikes() { return petLikes; }
 
-    public void setPetLikes(String petLikes) {
-        this.petLikes = petLikes;
-    }
+ //   public void setPetLikes(String petLikes) {this.petLikes = petLikes; }
+
+    public int getLikes() { return likes; }
+
+    public void setLikes(int likes) { this.likes = likes; }
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
 }

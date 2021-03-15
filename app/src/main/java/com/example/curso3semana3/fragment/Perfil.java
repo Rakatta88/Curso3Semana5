@@ -55,22 +55,22 @@ public class Perfil extends Fragment {
 
     public void createProfiles (){
         perfiles = new ArrayList<Mascota>();
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "3"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "8"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "1"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "4"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "7"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "2"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "3"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "8"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "1"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "4"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "7"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "0"));
-        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, "2"));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 3));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 0));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 8));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 1));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 4));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 7));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 0));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 2));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 3));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 0));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 8));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 1));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 4));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 7));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 0));
+        perfiles.add (new Mascota ("King Kong", R.drawable.petfaces06, 2));
     }
 
 }

@@ -86,11 +86,11 @@ public class Top5 extends AppCompatActivity {
 
     public void createPets (){
         mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota("Natascha", R.drawable.petfaces05, "5"));
-        mascotas.add (new Mascota ("Ottifant", R.drawable.petfaces02, "5"));
-        mascotas.add (new Mascota ("KungFu Panda", R.drawable.petfaces03, "4"));
-        mascotas.add (new Mascota ("Simba", R.drawable.petfaces07, "2"));
-        mascotas.add (new Mascota ("Määh", R.drawable.petfaces04, "1"));
+        mascotas.add(new Mascota("Natascha", R.drawable.petfaces05, 5));
+        mascotas.add (new Mascota ("Ottifant", R.drawable.petfaces02, 5));
+        mascotas.add (new Mascota ("KungFu Panda", R.drawable.petfaces03, 4));
+        mascotas.add (new Mascota ("Simba", R.drawable.petfaces07, 2));
+        mascotas.add (new Mascota ("Määh", R.drawable.petfaces04, 1));
 
     }
 

@@ -37,9 +37,9 @@ public class AdaptadorMascota extends RecyclerView.Adapter<AdaptadorMascota.Masc
         mascotaViewHolder.ivFotoMascota.setImageResource(mascota.getPetFoto());
         mascotaViewHolder.tvNombreMascota.setText(mascota.getPetName());
 
-        //TODO Validate if this works with INT or text
-        mascotaViewHolder.tvLikesMascota.setText(mascota.getPetLikes());
-
+        //TODO Switch back to use PetLikes
+        //mascotaViewHolder.tvLikesMascota.setText(mascota.getPetLikes());
+        mascotaViewHolder.tvLikesMascota.setText(String.valueOf(mascota.getLikes()));
     }
 
     @Override
@@ -57,7 +57,6 @@ public class AdaptadorMascota extends RecyclerView.Adapter<AdaptadorMascota.Masc
             ivFotoMascota   = (ImageView) itemView.findViewById(R.id.ivFotoMascota);
             tvNombreMascota = (TextView) itemView.findViewById(R.id.tvNombreMascota);
             tvLikesMascota  = (TextView) itemView.findViewById(R.id.tvLikesMascota);
-
         }
     }
 

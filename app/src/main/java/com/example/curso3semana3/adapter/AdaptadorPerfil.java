@@ -36,7 +36,10 @@ public class AdaptadorPerfil extends RecyclerView.Adapter<AdaptadorPerfil.Perfil
     public void onBindViewHolder(@NonNull PerfilViewHolder perfilViewHolder, int position) {
         Mascota mascota = perfiles.get(position);
         perfilViewHolder.iv_profilefoto.setImageResource(mascota.getPetFoto());
-        perfilViewHolder.tv_profilefotolikes.setText(mascota.getPetLikes());
+
+        //TODO Switch back to use PetLikes
+        //perfilViewHolder.tv_profilefotolikes.setText(mascota.getPetLikes());
+        perfilViewHolder.tv_profilefotolikes.setText(String.valueOf(mascota.getLikes()));
     }
 
     @Override
