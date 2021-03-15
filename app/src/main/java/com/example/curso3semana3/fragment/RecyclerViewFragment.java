@@ -1,5 +1,6 @@
 package com.example.curso3semana3.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.curso3semana3.R;
 import com.example.curso3semana3.adapter.AdaptadorMascota;
+import com.example.curso3semana3.db.ConstructorMascotas;
 import com.example.curso3semana3.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -21,6 +23,9 @@ public class RecyclerViewFragment extends Fragment {
 
     ArrayList<Mascota> mascotas;
     private RecyclerView listaMascotas;
+    private ConstructorMascotas constructorMascotas;
+    private Context context;
+    //private ArrayList<Mascota> almascotas;
 
     @Nullable
     @Override
@@ -32,8 +37,13 @@ public class RecyclerViewFragment extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         listaMascotas.setLayoutManager(llm);
+
         //Initialize Mascot list
-        createPets();
+        //Commentar para usar ConstructorMascotas y no ArrayList createPets
+        //createPets();
+
+        obtenerMascotasBaseDatos();
+
         inicializarAdaptador();
 
         return v;
@@ -44,7 +54,12 @@ public class RecyclerViewFragment extends Fragment {
         listaMascotas.setAdapter(adaptador);
     }
 
-    public void createPets (){
+    public void obtenerMascotasBaseDatos(){
+        constructorMascotas = new ConstructorMascotas(context);
+        mascotas = constructorMascotas.obtenerDatos();
+    }
+
+    /*public void createPets (){
         mascotas = new ArrayList<Mascota>();
         mascotas.add (new Mascota ("King Kong", R.drawable.petfaces06, 3));
         mascotas.add (new Mascota ("KungFu Panda", R.drawable.petfaces03, 4));
@@ -52,7 +67,6 @@ public class RecyclerViewFragment extends Fragment {
         mascotas.add (new Mascota ("Simba", R.drawable.petfaces07, 2));
         mascotas.add (new Mascota ("Ottifant", R.drawable.petfaces02, 5));
         mascotas.add (new Mascota ("Määh", R.drawable.petfaces04, 1));
-
-    }
+    } */
 
 }
