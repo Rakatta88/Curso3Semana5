@@ -21,8 +21,8 @@ public class BaseDatos extends SQLiteOpenHelper {
     private Context context;
     public BaseDatos(Context context) {
         //Los constantes usados estan en la clase ConstantesBaseDatos
-        //super(context, ConstantesBaseDatos.DATABASE_NAME, null, ConstantesBaseDatos.DATABASE_VERSION);
-        super(context, "mascotas", null, 1);
+        super(context, ConstantesBaseDatos.DATABASE_NAME, null, ConstantesBaseDatos.DATABASE_VERSION);
+        //super(context, "mascotas", null, 1);
         this.context = context;
         Log.i("DEBUGGING", "BaseDatos - After super Constructor");
     }
@@ -32,25 +32,26 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         Log.i("DEBUGGING", "BaseDatos - First step on Create");
 
-        /*String queryCrearTablaMascota = "CREATE TABLE " + ConstantesBaseDatos.TABLE_MASCOTAS + " (" +
+        String queryCrearTablaMascota = "CREATE TABLE " + ConstantesBaseDatos.TABLE_MASCOTAS + " (" +
                 ConstantesBaseDatos.TABLE_MASCOTAS_ID       + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 ConstantesBaseDatos.TABLE_MASCOTAS_PETNAME  + " TEXT, " +
                 ConstantesBaseDatos.TABLE_MASCOTAS_PETFOTO  + " INTEGER" +
-                ")";*/
-
-        String queryCrearTablaMascota = "CREATE TABLE mascota (id INTEGER PRIMARY KEY AUTOINCREMENT, petname TEXT, petfoto INTEGER)";
+                ")";
+        //Below the generated string for testing purposes
+        //String queryCrearTablaMascota = "CREATE TABLE mascota (id INTEGER PRIMARY KEY AUTOINCREMENT, petname TEXT, petfoto INTEGER)";
 
         Log.i("DEBUGGING", "BaseDatos - Second step on Create - generate 1st query");
 
-        /*String queryCrearTablaMascotaLikes = "CREATE TABLE " + ConstantesBaseDatos.TABLE_MASCOTAS_LIKES + " (" +
+        String queryCrearTablaMascotaLikes = "CREATE TABLE " + ConstantesBaseDatos.TABLE_MASCOTAS_LIKES + " (" +
                 ConstantesBaseDatos.TABLE_MASCOTAS_LIKES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 ConstantesBaseDatos.TABLE_MASCOTAS_LIKES_IDMASCOTA  + " INTEGER, " +
                 ConstantesBaseDatos.TABLE_MASCOTAS_LIKES_LIKES  + " INTEGER, " +
                 "FOREIGN KEY (" + ConstantesBaseDatos.TABLE_MASCOTAS_LIKES_IDMASCOTA + ") " +
                 "REFERENCES " + ConstantesBaseDatos.TABLE_MASCOTAS + " (" +  ConstantesBaseDatos.TABLE_MASCOTAS_ID + ")" +
-                ")";*/
+                ")";
 
-        String queryCrearTablaMascotaLikes = "CREATE TABLE mascotalikes (id INTEGER PRIMARY KEY AUTOINCREMENT, idmascota INTEGER, likes INTEGER, FOREIGN KEY (idmascota) REFERENCES mascota (id))";
+        //Below the generated string for testing purposes
+        //String queryCrearTablaMascotaLikes = "CREATE TABLE mascotalikes (id INTEGER PRIMARY KEY AUTOINCREMENT, idmascota INTEGER, likes INTEGER, FOREIGN KEY (idmascota) REFERENCES mascota (id))";
 
         Log.i("DEBUGGING", "BaseDatos - 3rd step on Create - generate 2nd query");
 
