@@ -80,7 +80,7 @@ public class Top5 extends AppCompatActivity {
     }
 
     public void inicializarAdaptador (){
-        AdaptadorMascota adaptador = new AdaptadorMascota(mascotas);
+        AdaptadorMascota adaptador = new AdaptadorMascota(mascotas, this);
         listaMascotas.setAdapter(adaptador);
     }
 

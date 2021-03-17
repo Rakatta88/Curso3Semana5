@@ -52,7 +52,7 @@ public class RecyclerViewFragment extends Fragment {
     }
 
     public void inicializarAdaptador (){
-        AdaptadorMascota adaptador = new AdaptadorMascota(mascotas);
+        AdaptadorMascota adaptador = new AdaptadorMascota(mascotas, getActivity());
         listaMascotas.setAdapter(adaptador);
     }
 

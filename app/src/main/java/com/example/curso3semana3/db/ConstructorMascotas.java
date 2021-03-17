@@ -76,4 +76,17 @@ public class ConstructorMascotas {
 
     }
 
+    public void darLikeMascota(Mascota mascota) {
+        BaseDatos db = new BaseDatos(context);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_LIKES_IDMASCOTA, mascota.getId());
+        contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_LIKES_LIKES, 1);
+        db.insertarLikeContacto(contentValues);
+    }
+
+    public int obtenerLikesMascota (Mascota mascota){
+        BaseDatos db = new BaseDatos(context);
+        return db.obtenerLikesMascota(mascota);
+    }
+
 }

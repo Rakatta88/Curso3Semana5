@@ -1,14 +1,19 @@
 package com.example.curso3semana3.adapter;
 
+import android.app.Activity;
+import android.app.Application;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.curso3semana3.MainActivity;
+import com.example.curso3semana3.db.ConstructorMascotas;
 import com.example.curso3semana3.pojo.Mascota;
 import com.example.curso3semana3.R;
 
@@ -16,9 +21,11 @@ import java.util.ArrayList;
 
 public class AdaptadorMascota extends RecyclerView.Adapter<AdaptadorMascota.MascotaViewHolder> {
     ArrayList<Mascota> mascotas;
+    Activity activity;
 
-    public AdaptadorMascota(ArrayList<Mascota> mascotas){
+    public AdaptadorMascota(ArrayList<Mascota> mascotas, Activity activity){
         this.mascotas = mascotas;
+        this.activity = activity;
     }
 
     //inflate the layout and pass to ViewHolder to obtain the views
@@ -40,7 +47,19 @@ public class AdaptadorMascota extends RecyclerView.Adapter<AdaptadorMascota.Masc
         //TODO Switch back to use PetLikes
         //mascotaViewHolder.tvLikesMascota.setText(mascota.getPetLikes());
         mascotaViewHolder.tvLikesMascota.setText(String.valueOf(mascota.getLikes()));
+
+        mascotaViewHolder.ivLikes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(activity, "Diste like a " + mascota.getPetName(), Toast.LENGTH_SHORT).show();
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.darLikeMascota(mascota);
+                mascotaViewHolder.tvLikesMascota.setText(String.valueOf(constructorMascotas.obtenerLikesMascota(mascota)));
+            }
+        });
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -49,7 +68,7 @@ public class AdaptadorMascota extends RecyclerView.Adapter<AdaptadorMascota.Masc
 
     public static class MascotaViewHolder extends RecyclerView.ViewHolder{
 
-        private ImageView ivFotoMascota;
+        private ImageView ivFotoMascota, ivLikes;
         private TextView tvNombreMascota, tvLikesMascota;
 
         public MascotaViewHolder(@NonNull View itemView) {
@@ -57,6 +76,7 @@ public class AdaptadorMascota extends RecyclerView.Adapter<AdaptadorMascota.Masc
             ivFotoMascota   = (ImageView) itemView.findViewById(R.id.ivFotoMascota);
             tvNombreMascota = (TextView) itemView.findViewById(R.id.tvNombreMascota);
             tvLikesMascota  = (TextView) itemView.findViewById(R.id.tvLikesMascota);
+            ivLikes = (ImageView) itemView.findViewById(R.id.ivWhiteBone);
         }
     }
 
