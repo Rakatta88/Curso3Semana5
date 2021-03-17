@@ -10,6 +10,11 @@ public class Mascota {
     String petLikes;
     int likes;
 
+    //Empty Constructor for the database methods to work
+    public Mascota() {
+
+    }
+
     public Mascota(String petName, int petFoto, int likes) {
         this.petName = petName;
         this.petFoto = petFoto;

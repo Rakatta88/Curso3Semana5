@@ -2,6 +2,7 @@ package com.example.curso3semana3.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class RecyclerViewFragment extends Fragment {
         //Initialize Mascot list
         //Commentar para usar ConstructorMascotas y no ArrayList createPets
         //createPets();
+        Log.i("DEBUGGING", "RecyclerViewFragment - Before obtenerMascotasBaseDatos");
 
         obtenerMascotasBaseDatos();
 
@@ -55,7 +57,7 @@ public class RecyclerViewFragment extends Fragment {
     }
 
     public void obtenerMascotasBaseDatos(){
-        constructorMascotas = new ConstructorMascotas(context);
+        constructorMascotas = new ConstructorMascotas(getContext());
         mascotas = constructorMascotas.obtenerDatos();
     }
 

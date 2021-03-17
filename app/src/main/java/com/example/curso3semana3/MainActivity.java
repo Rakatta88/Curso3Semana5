@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.i("DEBUGGING", "MainActivity - onCreate");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
@@ -43,14 +45,23 @@ public class MainActivity extends AppCompatActivity {
         androidx.appcompat.widget.Toolbar myActionBar = (Toolbar) findViewById(R.id.myactionbar);
         setSupportActionBar(myActionBar);
 
-
+        Log.i("DEBUGGING", "MainActivity - Before setting up ViewPager");
 
         setUpViewPager();
 
+        Log.i("DEBUGGING", "MainActivity - After setting up ViewPager");
+
+
         //TODO investigat if this really is correct
+
+        Log.i("DEBUGGING", "MainActivity - Before the Action Toolbar check");
+
         if (toolbar !=null){
             setSupportActionBar(toolbar);
         }
+
+        Log.i("DEBUGGING", "MainActivity - After the Action Toolbar check");
+
 
         ivFavorites = findViewById(R.id.ivFavorites);
         ivFavorites.setOnClickListener(new View.OnClickListener() {
@@ -60,33 +71,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
+        Log.i("DEBUGGING", "MainActivity - After setting onclicklistener");
 
     }
 
     private ArrayList<Fragment> agregarFragments(){
+        Log.i("DEBUGGING", "MainActivity - Before executing agregarFragments");
+
         ArrayList<Fragment> fragments = new ArrayList<>();
 
         fragments.add(new RecyclerViewFragment());
         fragments.add(new Perfil());
+        Log.i("DEBUGGING", "MainActivity - Before returning fragments");
 
         return fragments;
     }
 
     private void setUpViewPager(){
+
+        Log.i("DEBUGGING", "MainActivity - start setUpViewPager");
+
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
         tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+        Log.i("DEBUGGING", "MainActivity - OptionsMenu");
+
         getMenuInflater().inflate(R.menu.menu_opciones, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.i("DEBUGGING", "MainActivity - OnitemsSelected in options menu");
 
         switch (item.getItemId()) {
             case R.id.mContacto:
