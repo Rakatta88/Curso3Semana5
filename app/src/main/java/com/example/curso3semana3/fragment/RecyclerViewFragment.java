@@ -41,10 +41,12 @@ public class RecyclerViewFragment extends Fragment {
 
         //Initialize Mascot list
         //Commentar para usar ConstructorMascotas y no ArrayList createPets
-        //createPets();
+
+
+        createPets();
         Log.i("DEBUGGING", "RecyclerViewFragment - Before obtenerMascotasBaseDatos");
 
-        obtenerMascotasBaseDatos();
+        //obtenerMascotasBaseDatos();
 
         inicializarAdaptador();
 
@@ -61,7 +63,7 @@ public class RecyclerViewFragment extends Fragment {
         mascotas = constructorMascotas.obtenerDatos();
     }
 
-    /*public void createPets (){
+    public void createPets (){
         mascotas = new ArrayList<Mascota>();
         mascotas.add (new Mascota ("King Kong", R.drawable.petfaces06, 3));
         mascotas.add (new Mascota ("KungFu Panda", R.drawable.petfaces03, 4));
@@ -69,6 +71,6 @@ public class RecyclerViewFragment extends Fragment {
         mascotas.add (new Mascota ("Simba", R.drawable.petfaces07, 2));
         mascotas.add (new Mascota ("Ottifant", R.drawable.petfaces02, 5));
         mascotas.add (new Mascota ("Määh", R.drawable.petfaces04, 1));
-    } */
+    }
 
 }

@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.curso3semana3.adapter.AdaptadorMascota;
+import com.example.curso3semana3.db.ConstructorMascotas;
 import com.example.curso3semana3.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -21,6 +23,9 @@ public class Top5 extends AppCompatActivity {
 
     ArrayList<Mascota> mascotas;
     private RecyclerView listaMascotas;
+    private ConstructorMascotas constructorMascotas;
+    private Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +47,8 @@ public class Top5 extends AppCompatActivity {
 
         listaMascotas.setLayoutManager(llm);
 
-        createPets();
+        //createPets();
+        obtenerMascotasBaseDatos();
         inicializarAdaptador();
 
     }
@@ -84,7 +90,12 @@ public class Top5 extends AppCompatActivity {
         listaMascotas.setAdapter(adaptador);
     }
 
-    public void createPets (){
+    public void obtenerMascotasBaseDatos(){
+        constructorMascotas = new ConstructorMascotas(getApplicationContext());
+        mascotas = constructorMascotas.obtenerDatos();
+    }
+    //This is not used anymore
+    /*public void createPets (){
         mascotas = new ArrayList<Mascota>();
         mascotas.add(new Mascota("Natascha", R.drawable.petfaces05, 5));
         mascotas.add (new Mascota ("Ottifant", R.drawable.petfaces02, 5));
@@ -92,7 +103,7 @@ public class Top5 extends AppCompatActivity {
         mascotas.add (new Mascota ("Simba", R.drawable.petfaces07, 2));
         mascotas.add (new Mascota ("Määh", R.drawable.petfaces04, 1));
 
-    }
+    }*/
 
 
 }

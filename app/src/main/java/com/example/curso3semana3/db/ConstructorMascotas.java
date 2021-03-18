@@ -44,35 +44,30 @@ public class ConstructorMascotas {
     }
 
     public void insertarTresMascotas (BaseDatos db){
-        Log.i("DEBUGGING", "ConstructorMascotas - start method insertarTresMascotas");
-        Log.i("DEBUGGING", "ConstructorMascotas - Before new ContentValues");
         ContentValues contentValues = new ContentValues();
-        Log.i("DEBUGGING", "ConstructorMascotas - After new ContentValues");
-
-        Log.i("DEBUGGING", "ConstructorMascotas - Before adding petname");
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETNAME, "Animalito 1");
-        Log.i("DEBUGGING", "ConstructorMascotas - After adding petname");
-
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETFOTO, R.drawable.petfaces06);
-        Log.i("DEBUGGING", "ConstructorMascotas - After adding petfoto");
-
-        Log.i("DEBUGGING", "ConstructorMascotas - Before db.insertarMascota");
         db.insertarMascota(contentValues);
-        Log.i("DEBUGGING", "ConstructorMascotas - After db.insertarMascota");
 
-
-        Log.i("DEBUGGING", "ConstructorMascotas - after inserting first mascota");
         contentValues = new ContentValues();
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETNAME, "Animalito 2");
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETFOTO, R.drawable.petfaces05);
         db.insertarMascota(contentValues);
-        Log.i("DEBUGGING", "ConstructorMascotas - after inserting second mascota");
 
         contentValues = new ContentValues();
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETNAME, "Animalito 3");
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETFOTO, R.drawable.petfaces04);
         db.insertarMascota(contentValues);
-        Log.i("DEBUGGING", "ConstructorMascotas - after inserting third mascota");
+
+        contentValues = new ContentValues();
+        contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETNAME, "Animalito 4");
+        contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETFOTO, R.drawable.petfaces03);
+        db.insertarMascota(contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETNAME, "Animalito 5");
+        contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_PETFOTO, R.drawable.petfaces02);
+        db.insertarMascota(contentValues);
 
     }
 
